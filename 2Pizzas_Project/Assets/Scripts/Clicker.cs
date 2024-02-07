@@ -1,20 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Clicker : MonoBehaviour
 {
-    [SerializeField] int money;
+    public static int money;
+
     public Text moneyText;
 
-    public void ButtonCick()
+    private void Start()
+    {
+        money = PlayerPrefs.GetInt("money", 0);
+    }
+
+
+    public void Click()
     {
         money++;
     }
 
-    void Update()
+
+    public void Update()
     {
-        moneyText.text = money.ToString();
+        moneyText.text = "Food:" + money;
     }
+
 }
